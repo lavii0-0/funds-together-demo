@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campaigns | Funds TOgether</title>
+  <script src="js/lang.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/campaigns.js" defer></script>
+</head>
+<body data-page="campaigns" data-title-en="Campaigns" data-title-it="Campagne">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <div class="wrap page-head">
+      <h1><span data-l="en">Campaigns</span><span data-l="it">Campagne</span></h1>
+      <p class="lead">
+        <span data-l="en">The research projects of the 2026 edition. Each campaign has its own end date, between 10 and 18 November 2026: compare them and choose the one that matters to you.</span>
+        <span data-l="it">I progetti di ricerca dell’edizione 2026. Ogni campagna ha la sua scadenza, tra il 10 e il 18 novembre 2026: confrontale e scegli quella che ti sta a cuore.</span>
+      </p>
+    </div>
+
+    <div class="wrap" style="padding-bottom:70px">
+      <form class="toolbar" id="filters" role="search" onsubmit="return false">
+        <div class="field" style="flex:1 1 260px">
+          <label for="q"><span data-l="en">Search</span><span data-l="it">Cerca</span></label>
+          <input id="q" type="search" autocomplete="off" data-ph-en="Project name or topic, e.g. heart" data-ph-it="Nome del progetto o tema, es. cuore">
+        </div>
+        <div class="field">
+          <span class="label" id="theme-label"><span data-l="en">Theme</span><span data-l="it">Tema</span></span>
+          <div class="chips" role="group" aria-labelledby="theme-label" id="theme-chips">
+            <button type="button" class="chip" data-theme="all" aria-pressed="true"><span data-l="en">All</span><span data-l="it">Tutti</span></button>
+            <button type="button" class="chip" data-theme="health" aria-pressed="false"><span data-l="en">Health</span><span data-l="it">Salute</span></button>
+            <button type="button" class="chip" data-theme="environment" aria-pressed="false"><span data-l="en">Environment</span><span data-l="it">Ambiente</span></button>
+            <button type="button" class="chip" data-theme="society" aria-pressed="false"><span data-l="en">Society and cities</span><span data-l="it">Società e città</span></button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="status"><span data-l="en">Status</span><span data-l="it">Stato</span></label>
+          <select id="status">
+            <option value="all" data-en="All campaigns" data-it="Tutte le campagne">All campaigns</option>
+            <option value="open" data-en="Still collecting for the goal" data-it="Ancora in raccolta per l’obiettivo">Still collecting for the goal</option>
+            <option value="reached" data-en="Goal already reached" data-it="Obiettivo già raggiunto">Goal already reached</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sort"><span data-l="en">Sort by</span><span data-l="it">Ordina per</span></label>
+          <select id="sort">
+            <option value="close" data-en="Closest to the goal" data-it="Più vicini all’obiettivo">Closest to the goal</option>
+            <option value="far" data-en="Most in need of support" data-it="Che hanno più bisogno di sostegno">Most in need of support</option>
+            <option value="donors" data-en="Most donors" data-it="Più donatori">Most donors</option>
+            <option value="az" data-en="Name (A–Z)" data-it="Nome (A–Z)">Name (A–Z)</option>
+          </select>
+        </div>
+      </form>
+
+      <h2 class="sr-only">Campaign list</h2>
+      <p class="result-count" id="count" aria-live="polite"></p>
+      <div class="card-grid" id="list"></div>
+
+      <div class="empty" id="empty" hidden>
+        <h2 style="font-size:1.3rem"><span data-l="en">No campaign matches these filters</span><span data-l="it">Nessuna campagna corrisponde a questi filtri</span></h2>
+        <p><span data-l="en">Try another word, or show all the campaigns again.</span><span data-l="it">Prova un’altra parola, oppure mostra di nuovo tutte le campagne.</span></p>
+        <button type="button" class="btn" id="reset"><span data-l="en">Show all campaigns</span><span data-l="it">Mostra tutte le campagne</span></button>
+      </div>
+
+      <div class="note note--info" style="margin-top:40px">
+        <p>
+          <span data-l="en">Looking for a project from a past edition? Their results are on the</span>
+          <span data-l="it">Cerchi un progetto di un’edizione passata? I risultati sono nella pagina</span>
+          <a href="programme.html#editions"><span data-l="en">The programme page</span><span data-l="it">Il programma</span></a>.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

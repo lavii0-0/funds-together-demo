@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Choose your support | Funds TOgether</title>
+  <script src="js/lang.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/forms.js" defer></script>
+  <script src="js/support.js" defer></script>
+</head>
+<body data-page="support" data-title-en="Choose your support" data-title-it="Scegli come sostenere">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <div class="wrap page-head" style="padding-bottom:16px">
+      <a class="link-back" id="back-project" href="campaigns.html"><span data-l="en">Back to the project</span><span data-l="it">Torna al progetto</span></a>
+      <h1 id="flow-title"></h1>
+    </div>
+
+    <div class="wrap">
+      <ol class="stepper" aria-label="Steps">
+        <li aria-current="step"><span data-l="en">Your support</span><span data-l="it">Il tuo sostegno</span></li>
+        <li><span data-l="en">Your details and payment</span><span data-l="it">Dati e pagamento</span></li>
+        <li><span data-l="en">Confirmation</span><span data-l="it">Conferma</span></li>
+      </ol>
+    </div>
+
+    <div class="wrap flow-layout">
+      <form id="support-form" novalidate>
+        <div class="error-summary" id="errors" tabindex="-1" hidden></div>
+
+        <fieldset>
+          <legend><span data-l="en">Choose a reward, or give without one</span><span data-l="it">Scegli una ricompensa, oppure dona senza</span></legend>
+          <span class="hint"><span data-l="en">Each reward needs a minimum amount. You can give more than that.</span><span data-l="it">Ogni ricompensa richiede una cifra minima. Puoi donare di più.</span></span>
+          <div id="reward-list"></div>
+        </fieldset>
+
+        <div class="field">
+          <label for="amount"><span data-l="en">Your donation</span><span data-l="it">La tua donazione</span></label>
+          <span class="hint" id="amount-hint"></span>
+          <div class="amount-input"><span aria-hidden="true">€</span><input id="amount" name="amount" type="text" inputmode="decimal" autocomplete="off" aria-describedby="amount-hint amount-error"></div>
+          <div class="quick" id="quick" role="group" aria-label="Quick amounts"></div>
+          <p class="field-error" id="amount-error" aria-live="polite"></p>
+        </div>
+
+        <div class="flow-actions">
+          <button class="btn" type="submit"><span data-l="en">Continue to your details</span><span data-l="it">Continua con i tuoi dati</span></button>
+          <span class="muted small"><span data-l="en">Nothing is paid at this step.</span><span data-l="it">In questo passaggio non paghi nulla.</span></span>
+        </div>
+      </form>
+
+      <aside class="panel summary" id="summary" aria-live="polite"></aside>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

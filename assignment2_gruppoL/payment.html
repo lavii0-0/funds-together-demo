@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your details and payment | Funds TOgether</title>
+  <script src="js/lang.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/forms.js" defer></script>
+  <script src="js/payment.js" defer></script>
+</head>
+<body data-page="payment" data-title-en="Your details and payment" data-title-it="Dati e pagamento">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <div class="wrap page-head" style="padding-bottom:16px">
+      <a class="link-back" id="back-step" href="campaigns.html"><span data-l="en">Back: change reward or amount</span><span data-l="it">Indietro: cambia ricompensa o cifra</span></a>
+      <h1><span data-l="en">Your details and payment</span><span data-l="it">I tuoi dati e il pagamento</span></h1>
+    </div>
+
+    <div class="wrap">
+      <ol class="stepper" aria-label="Steps">
+        <li class="is-done"><span data-l="en">Your support</span><span data-l="it">Il tuo sostegno</span></li>
+        <li aria-current="step"><span data-l="en">Your details and payment</span><span data-l="it">Dati e pagamento</span></li>
+        <li><span data-l="en">Confirmation</span><span data-l="it">Conferma</span></li>
+      </ol>
+    </div>
+
+    <div class="wrap flow-layout">
+      <form id="pay-form" novalidate>
+        <div class="error-summary" id="errors" tabindex="-1" hidden></div>
+
+        <div class="note note--info" style="margin-bottom:26px">
+          <p><span data-l="en"><strong>This is a prototype.</strong> No account is needed and no real payment is made. Do not enter real bank or card details anywhere.</span>
+             <span data-l="it"><strong>Questo è un prototipo.</strong> Non serve un account e non avviene alcun pagamento reale. Non inserire dati bancari o di carte reali.</span></p>
+        </div>
+
+        <h2 style="font-size:1.3rem"><span data-l="en">About you</span><span data-l="it">Chi sei</span></h2>
+        <div class="field">
+          <label for="name"><span data-l="en">Full name</span><span data-l="it">Nome e cognome</span></label>
+          <input id="name" type="text" autocomplete="name" aria-describedby="name-error">
+          <p class="field-error" id="name-error"></p>
+        </div>
+        <div class="field">
+          <label for="email"><span data-l="en">Email address</span><span data-l="it">Indirizzo email</span></label>
+          <span class="hint" id="email-hint"><span data-l="en">We send your donation certificate and the project updates here.</span><span data-l="it">Qui ti inviamo l’attestato di donazione e gli aggiornamenti del progetto.</span></span>
+          <input id="email" type="email" autocomplete="email" aria-describedby="email-hint email-error">
+          <p class="field-error" id="email-error"></p>
+        </div>
+        <label class="check"><input type="checkbox" id="public" checked>
+          <span><span data-l="en">Show my name in the list of supporters. If you untick this, you are counted as anonymous.</span><span data-l="it">Mostra il mio nome nell’elenco dei sostenitori. Se togli la spunta, vieni conteggiato come anonimo.</span></span></label>
+        <label class="check"><input type="checkbox" id="updates" checked>
+          <span><span data-l="en">Email me the project updates and the final result.</span><span data-l="it">Inviami via email gli aggiornamenti del progetto e il risultato finale.</span></span></label>
+
+        <h2 style="font-size:1.3rem;margin-top:30px"><span data-l="en">How do you want to pay?</span><span data-l="it">Come vuoi pagare?</span></h2>
+        <fieldset id="method-set" aria-describedby="method-error">
+          <legend class="sr-only"><span data-l="en">Payment method</span><span data-l="it">Metodo di pagamento</span></legend>
+          <div id="methods"></div>
+          <p class="field-error" id="method-error"></p>
+        </fieldset>
+
+        <h2 style="font-size:1.3rem;margin-top:30px"><span data-l="en">Before you confirm</span><span data-l="it">Prima di confermare</span></h2>
+        <ul class="conditions" id="key-terms"></ul>
+        <label class="check" style="margin-top:14px"><input type="checkbox" id="terms" aria-describedby="terms-error">
+          <span><span data-l="en">I have read these conditions and the</span><span data-l="it">Ho letto queste condizioni e le</span>
+            <a href="how-it-works.html#terms" target="_blank"><span data-l="en">full rules (open in a new tab)</span><span data-l="it">regole complete (si aprono in una nuova scheda)</span></a>.</span></label>
+        <p class="field-error" id="terms-error"></p>
+
+        <div class="flow-actions">
+          <button class="btn" type="submit" id="pay-btn"></button>
+          <a id="back-link-2" href="campaigns.html"><span data-l="en">Change reward or amount</span><span data-l="it">Cambia ricompensa o cifra</span></a>
+        </div>
+      </form>
+
+      <aside class="panel summary" id="summary"></aside>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

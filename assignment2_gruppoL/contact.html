@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Funds TOgether</title>
+  <script src="js/lang.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/forms.js" defer></script>
+  <script src="js/contact.js" defer></script>
+</head>
+<body data-page="contact" data-title-en="Contact" data-title-it="Contatti">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <div class="wrap page-head">
+      <h1><span data-l="en">Who should you contact?</span><span data-l="it">Chi devi contattare?</span></h1>
+      <p class="lead"><span data-l="en">Tell us what your question is about: we show you who answers it, and you can write to them here.</span>
+        <span data-l="it">Dicci di cosa si tratta: ti mostriamo chi risponde, e puoi scrivergli da qui.</span></p>
+    </div>
+
+    <div class="wrap side-layout">
+      <div>
+        <!-- Routing instead of one generic contact (problems B6 and C5) -->
+        <fieldset class="route">
+          <legend><span data-l="en">My question is about…</span><span data-l="it">La mia domanda riguarda…</span></legend>
+          <label class="choice" style="grid-template-columns:auto 1fr"><input type="radio" name="topic" value="payment"><span><span class="choice-title"><span data-l="en">A donation, a payment or a refund</span><span data-l="it">Una donazione, un pagamento o un rimborso</span></span></span></label>
+          <label class="choice" style="grid-template-columns:auto 1fr"><input type="radio" name="topic" value="project"><span><span class="choice-title"><span data-l="en">A specific project or its rewards</span><span data-l="it">Un progetto specifico o le sue ricompense</span></span></span></label>
+          <label class="choice" style="grid-template-columns:auto 1fr"><input type="radio" name="topic" value="programme"><span><span class="choice-title"><span data-l="en">The programme or the University match</span><span data-l="it">Il programma o il raddoppio dell’Ateneo</span></span></span></label>
+          <label class="choice" style="grid-template-columns:auto 1fr"><input type="radio" name="topic" value="apply"><span><span class="choice-title"><span data-l="en">Proposing a project (UniTO researchers)</span><span data-l="it">Proporre un progetto (ricercatori UniTO)</span></span></span></label>
+        </fieldset>
+
+        <div class="panel route-result" id="route-result" aria-live="polite" hidden></div>
+
+        <form id="contact-form" novalidate hidden style="margin-top:30px">
+          <h2 style="font-size:1.35rem" id="form-h"></h2>
+          <div class="error-summary" id="errors" tabindex="-1" hidden></div>
+          <div class="field" id="project-field" hidden>
+            <label for="c-project"><span data-l="en">Which project?</span><span data-l="it">Quale progetto?</span></label>
+            <select id="c-project"></select>
+            <p class="field-error" id="c-project-error"></p>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="c-name"><span data-l="en">Your name</span><span data-l="it">Il tuo nome</span></label>
+              <input id="c-name" type="text" autocomplete="name">
+              <p class="field-error" id="c-name-error"></p>
+            </div>
+            <div class="field">
+              <label for="c-email"><span data-l="en">Email for the reply</span><span data-l="it">Email per la risposta</span></label>
+              <input id="c-email" type="email" autocomplete="email">
+              <p class="field-error" id="c-email-error"></p>
+            </div>
+          </div>
+          <div class="field" id="ref-field" hidden>
+            <label for="c-ref"><span data-l="en">Donation reference (optional)</span><span data-l="it">Riferimento della donazione (facoltativo)</span></label>
+            <span class="hint"><span data-l="en">You find it on the confirmation page and in the certificate email.</span><span data-l="it">Lo trovi nella pagina di conferma e nella mail dell’attestato.</span></span>
+            <input id="c-ref" type="text" data-ph-en="e.g. FT26-MIN-1175" data-ph-it="es. FT26-MIN-1175">
+          </div>
+          <div class="field">
+            <label for="c-msg"><span data-l="en">Your message</span><span data-l="it">Il tuo messaggio</span></label>
+            <textarea id="c-msg" data-max="1000"></textarea>
+            <p class="counter" id="c-msg-count"></p>
+            <p class="field-error" id="c-msg-error"></p>
+          </div>
+          <div class="flow-actions"><button class="btn" type="submit" id="c-submit"></button></div>
+        </form>
+        <div class="success-box" id="c-success" tabindex="-1" hidden role="region" data-aria-en="Contact form result" data-aria-it="Esito del modulo di contatto" style="margin-top:30px"></div>
+      </div>
+
+      <aside class="panel toc">
+        <h2 style="font-size:1.1rem"><span data-l="en">All contacts</span><span data-l="it">Tutti i contatti</span></h2>
+        <p><strong><span data-l="en">Funds TOgether office</span><span data-l="it">Ufficio Funds TOgether</span></strong><br>
+          <span data-l="en">University of Turin, Via Verdi 8, Turin</span><span data-l="it">Università di Torino, Via Verdi 8, Torino</span><br>
+          <a href="mailto:fundstogether@unito.it">fundstogether@unito.it</a></p>
+        <p><strong><span data-l="en">Ginger support</span><span data-l="it">Assistenza Ginger</span></strong><br>
+          <span data-l="en">Monday to Friday, 9:30 to 16:30</span><span data-l="it">Dal lunedì al venerdì, 9:30–16:30</span><br>
+          <a href="mailto:ginger@ideaginger.it">ginger@ideaginger.it</a><br><a href="tel:+3905119501024">051 19501024</a></p>
+        <p style="margin:0"><a href="faq.html"><span data-l="en">Maybe the answer is already in the FAQ</span><span data-l="it">Forse la risposta è già nelle FAQ</span></a></p>
+      </aside>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

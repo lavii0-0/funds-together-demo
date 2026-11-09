@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ | Funds TOgether</title>
+  <script src="js/lang.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/faq.js" defer></script>
+</head>
+<body data-page="faq" data-title-en="Frequently asked questions" data-title-it="Domande frequenti">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <div class="wrap page-head">
+      <h1><span data-l="en">Frequently asked questions</span><span data-l="it">Domande frequenti</span></h1>
+      <p class="lead"><span data-l="en">Questions about donating, payments, the University match and proposing a project.</span><span data-l="it">Domande su donazioni, pagamenti, raddoppio dell’Ateneo e proposta di un progetto.</span></p>
+    </div>
+
+    <div class="wrap faq-layout">
+      <div>
+        <div class="field">
+          <label for="faq-q"><span data-l="en">Search the questions</span><span data-l="it">Cerca tra le domande</span></label>
+          <input id="faq-q" type="search" autocomplete="off" data-ph-en="e.g. refund, PayPal, anonymous" data-ph-it="es. rimborso, PayPal, anonimo">
+        </div>
+        <div class="faq-cats" role="group" aria-label="Categories" id="cats"></div>
+      </div>
+      <div>
+        <p class="result-count" id="faq-count" aria-live="polite"></p>
+        <div id="faq-list"></div>
+        <div class="empty" id="faq-empty" hidden>
+          <h2 style="font-size:1.25rem"><span data-l="en">No question matches your search</span><span data-l="it">Nessuna domanda corrisponde alla ricerca</span></h2>
+          <p><span data-l="en">Try a shorter word, or ask us directly.</span><span data-l="it">Prova una parola più breve, oppure chiedi direttamente a noi.</span></p>
+          <a class="btn" href="contact.html"><span data-l="en">Ask a question</span><span data-l="it">Fai una domanda</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funds TOgether | University of Turin</title>
+  <script src="js/lang.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/home.js" defer></script>
+</head>
+<body data-page="home" data-title-en="Research crowdfunding" data-title-it="Crowdfunding per la ricerca">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1>
+            <span data-l="en">Research from the University of Turin, funded together.</span>
+            <span data-l="it">La ricerca dell’Università di Torino, finanziata insieme.</span>
+          </h1>
+          <p class="lead">
+            <span data-l="en">Choose a research project and support it with the amount you want. When a project reaches its goal, the University doubles what donors have raised.</span>
+            <span data-l="it">Scegli un progetto di ricerca e sostienilo con la cifra che vuoi. Quando un progetto raggiunge l’obiettivo, l’Ateneo raddoppia quanto raccolto dai donatori.</span>
+          </p>
+
+          <!-- Two clear entry points for two audiences (Assignment 1, problems A1 and B3) -->
+          <div class="paths">
+            <a class="path path--primary" href="campaigns.html">
+              <strong><span data-l="en">Support a project</span><span data-l="it">Sostieni un progetto</span></strong>
+              <span><span data-l="en">5 campaigns open, closing between 10 and 18 November</span><span data-l="it">5 campagne aperte, chiudono tra il 10 e il 18 novembre</span></span>
+            </a>
+            <a class="path" href="propose.html">
+              <strong><span data-l="en">I’m a UniTO researcher</span><span data-l="it">Faccio ricerca in UniTO</span></strong>
+              <span><span data-l="en">How to propose your project for the next edition</span><span data-l="it">Come proporre il tuo progetto per la prossima edizione</span></span>
+            </a>
+          </div>
+        </div>
+
+        <aside class="simulator" aria-labelledby="sim-title">
+          <h2 id="sim-title"><span data-l="en">What does your donation become?</span><span data-l="it">Che cosa diventa la tua donazione?</span></h2>
+          <label for="sim-range" class="muted small"><span data-l="en">Move the slider to choose an amount</span><span data-l="it">Sposta il cursore per scegliere una cifra</span></label>
+          <div class="sim-amount"><output id="sim-out" for="sim-range">€25</output></div>
+          <input id="sim-range" class="sim-range" type="range" min="5" max="200" step="5" value="25">
+          <div class="sim-bars" aria-live="polite">
+            <span><span data-l="en">You give</span><span data-l="it">Tu doni</span></span>
+            <div><div class="sim-bar sim-bar--you" id="sim-you"></div></div>
+            <span><span data-l="en">University adds</span><span data-l="it">L’Ateneo aggiunge</span></span>
+            <div><div class="sim-bar sim-bar--match" id="sim-match"></div></div>
+          </div>
+          <p class="sim-total" id="sim-total"></p>
+          <p class="small muted" style="margin:0">
+            <span data-l="en">The University matches what donors raise, up to €10,000 per project, only if the project reaches its goal.</span>
+            <span data-l="it">L’Ateneo aggiunge quanto raccolto dai donatori, fino a 10.000 € per progetto, solo se il progetto raggiunge l’obiettivo.</span>
+            <a href="how-it-works.html#match"><span data-l="en">How the match works</span><span data-l="it">Come funziona il cofinanziamento</span></a>
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--white" aria-labelledby="open-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="open-title"><span data-l="en">All 5 campaigns open now</span><span data-l="it">Tutte le 5 campagne aperte ora</span></h2>
+          <a href="campaigns.html"><span data-l="en">Search and filter campaigns</span><span data-l="it">Cerca e filtra le campagne</span></a>
+        </div>
+        <div class="card-grid" id="home-cards"></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="how-title">
+      <div class="wrap">
+        <h2 id="how-title"><span data-l="en">How supporting a project works</span><span data-l="it">Come funziona sostenere un progetto</span></h2>
+        <p class="lead" style="margin-bottom:34px"><span data-l="en">No account needed. It takes about two minutes.</span><span data-l="it">Non serve un account. Ci vogliono circa due minuti.</span></p>
+        <ol class="steps">
+          <li>
+            <h3><span data-l="en">Choose a project</span><span data-l="it">Scegli un progetto</span></h3>
+            <p><span data-l="en">Each page says who runs the research, what it is for and exactly how the money will be spent.</span><span data-l="it">Ogni pagina dice chi conduce la ricerca, a cosa serve e come verranno spesi esattamente i fondi.</span></p>
+          </li>
+          <li>
+            <h3><span data-l="en">Give what you want</span><span data-l="it">Dona quanto vuoi</span></h3>
+            <p><span data-l="en">Pick a reward or simply give an amount. Pay by card, PayPal, Satispay or bank transfer.</span><span data-l="it">Scegli una ricompensa o dona semplicemente una cifra. Paga con carta, PayPal, Satispay o bonifico.</span></p>
+          </li>
+          <li>
+            <h3><span data-l="en">Follow the result</span><span data-l="it">Segui il risultato</span></h3>
+            <p><span data-l="en">If the goal is reached by the end date, the University doubles it and the research starts. If not, you get your money back, minus the payment fees.</span><span data-l="it">Se l’obiettivo viene raggiunto entro la scadenza, l’Ateneo lo raddoppia e la ricerca parte. Altrimenti ti restituiamo la somma, al netto delle commissioni di pagamento.</span></p>
+          </li>
+        </ol>
+        <p style="margin-top:20px"><a href="how-it-works.html"><span data-l="en">Read all the rules in plain words</span><span data-l="it">Leggi tutte le regole in parole semplici</span></a></p>
+      </div>
+    </section>
+
+    <section class="section section--white" aria-labelledby="fig-title">
+      <div class="wrap two-col">
+        <div>
+          <h2 id="fig-title"><span data-l="en">The 2026 edition so far</span><span data-l="it">L’edizione 2026 finora</span></h2>
+          <p class="big-figure" id="home-raised"></p>
+          <p id="home-raised-detail" class="muted"></p>
+          <p><a href="programme.html"><span data-l="en">About the programme and past editions</span><span data-l="it">Il programma e le edizioni passate</span></a></p>
+        </div>
+        <div class="panel">
+          <h2 style="font-size:1.3rem"><span data-l="en">Who to contact</span><span data-l="it">Chi contattare</span></h2>
+          <p><strong><span data-l="en">Questions about the programme, applications or the University match</span><span data-l="it">Domande su programma, candidature o cofinanziamento</span></strong><br>
+            <span data-l="en">Funds TOgether office, University of Turin:</span><span data-l="it">Ufficio Funds TOgether, Università di Torino:</span> <a href="mailto:fundstogether@unito.it">fundstogether@unito.it</a></p>
+          <p><strong><span data-l="en">Questions about a payment or a refund</span><span data-l="it">Domande su un pagamento o un rimborso</span></strong><br>
+            <span data-l="en">Ginger, the crowdfunding platform that handles the payments.</span><span data-l="it">Ginger, la piattaforma di crowdfunding che gestisce i pagamenti.</span></p>
+          <a class="btn btn--ghost" href="contact.html"><span data-l="en">Find the right contact</span><span data-l="it">Trova il contatto giusto</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>
