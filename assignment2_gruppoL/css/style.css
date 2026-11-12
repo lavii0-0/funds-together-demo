@@ -54,8 +54,10 @@ p { margin: 0 0 1em; }
 :focus-visible { outline: 3px solid var(--donor-dark); outline-offset: 2px; border-radius: 4px; }
 ::placeholder { color: var(--muted); opacity: 1; }
 
-.skip { position: absolute; left: 12px; top: -60px; background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 6px; z-index: 50; }
-.skip:focus { top: 12px; color: #fff; }
+/* Skip link: dark text on a white box (7:1), so its contrast does not depend on what is behind it
+   while it waits off-screen (WCAG 1.4.3); clear dark outline when focused (WCAG 2.4.7). */
+.skip { position: absolute; left: 12px; top: -80px; background-color: #FFFFFF; color: #2F2B3A; border: 2px solid #45529C; font-weight: 700; padding: 10px 16px; border-radius: 6px; z-index: 50; }
+.skip:focus, .skip:focus-visible { top: 12px; color: #2F2B3A; background-color: #FFFFFF; outline: 3px solid #2F2B3A; outline-offset: 2px; }
 
 /* ---------- edition bar (problem C3: always say which phase we are in) ---------- */
 .edition-bar { background: var(--pastel); color: var(--ink); font-size: .92rem; }
@@ -78,10 +80,13 @@ p { margin: 0 0 1em; }
 .nav a:hover { background: var(--bg); color: var(--ink); }
 .nav a[aria-current="page"] { color: var(--donor-dark); box-shadow: inset 0 -3px 0 var(--donor-dark); border-radius: 0; }
 nav[aria-label="Main"] { margin-left: auto; }
-.lang-switch { display: flex; border: 1px solid var(--edge); border-radius: 8px; overflow: hidden; flex-shrink: 0; }
-.lang-switch button { font: 700 .85rem var(--font-body); padding: 7px 11px; border: 0; background: var(--surface); color: var(--muted); cursor: pointer; }
+/* No overflow:hidden any more: it clipped the focus outline. Each button has its own rounded corners instead. */
+.lang-switch { display: flex; gap: 2px; padding: 2px; border: 1px solid var(--edge); border-radius: 8px; flex-shrink: 0; background: var(--surface); }
+.lang-switch button { font: 700 .85rem var(--font-body); padding: 6px 10px; border: 0; border-radius: 6px; background: var(--surface); color: var(--muted); cursor: pointer; }
 .lang-switch button[aria-pressed="true"] { background: var(--btn); color: var(--ink); box-shadow: inset 0 0 0 2px var(--donor-dark); }
-.lang-switch button:focus-visible { outline-offset: -4px; }   /* the container clips outlines drawn outside the buttons */
+/* Focus outline with its own colour, drawn outside the button, so it is different from the
+   blue ring of the selected language (WCAG 2.4.7, MAUVE++ technique F78 checks outline-color). */
+.lang-switch button:focus-visible { outline: 3px solid #2F2B3A; outline-color: #2F2B3A; outline-offset: 2px; position: relative; z-index: 1; }
 .lang-switch button:hover:not([aria-pressed="true"]) { background: var(--bg); color: var(--ink); }
 
 .btn {
@@ -208,7 +213,8 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px
 .field-ok { color: var(--ok); font-size: .92rem; font-weight: 700; margin-top: 6px; }
 fieldset { border: 0; padding: 0; margin: 0 0 20px; }
 .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; margin-bottom: 10px; }
-.check input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--donor); flex-shrink: 0; }
+/* Sizes in rem/em, not px, so labels and inputs scale and reflow together (WCAG 1.4.10, technique C38). */
+.check input { width: 1.25rem; height: 1.25rem; max-width: 100%; margin-top: .2em; accent-color: var(--donor); flex-shrink: 0; }
 .counter { font-size: .85rem; color: var(--muted); text-align: right; margin-top: 4px; }
 .counter.is-over { color: var(--err); font-weight: 700; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
@@ -225,6 +231,7 @@ fieldset { border: 0; padding: 0; margin: 0 0 20px; }
 .confirm-box h3 { color: var(--err); margin-top: 0; }
 .btn--danger { background: var(--err); border-color: var(--err); color: #fff; }
 .btn--danger:hover { background: #8E342C; border-color: #8E342C; color: #fff; }
+.btn--danger:focus-visible { outline: 3px solid #2F2B3A; outline-color: #2F2B3A; outline-offset: 2px; box-shadow: inset 0 0 0 2px #FFFFFF; }
 
 .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
 .note { border-left: 4px solid var(--match); background: var(--match-soft); padding: 14px 18px; border-radius: 0 8px 8px 0; }
@@ -263,7 +270,7 @@ fieldset { border: 0; padding: 0; margin: 0 0 20px; }
 .reward-amount { font-family: var(--font-head); font-weight: 800; font-size: 1.4rem; }
 .reward h3 { font-size: 1.05rem; margin: 0 0 2px; }
 .reward p { margin: 0; font-size: .93rem; color: var(--muted); }
-.avail { font-size: .85rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; white-space: nowrap; background: var(--ok-soft); color: var(--ok); }
+.avail { display: inline-block; font-size: .85rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; white-space: nowrap; background: var(--ok-soft); color: var(--ok); }
 .avail--few { background: var(--match-soft); color: #9A4E33; }
 .avail--none { background: #F1EDF4; color: var(--muted); }
 .reward.is-soldout { opacity: .7; }
@@ -298,13 +305,13 @@ table.budget { width: 100%; border-collapse: collapse; background: var(--surface
 .flow-layout { display: grid; grid-template-columns: 1fr 360px; gap: 40px; align-items: start; padding-bottom: 70px; }
 .choice { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 16px 18px; background: var(--surface); border: 2px solid var(--edge); border-radius: var(--radius); margin-bottom: 10px; cursor: pointer; font-weight: 400; }
 .choice:hover { border-color: var(--donor-dark); }
-.choice input { width: 20px; height: 20px; accent-color: var(--donor); margin: 0; }
+.choice input { width: 1.25rem; height: 1.25rem; max-width: 100%; accent-color: var(--donor); margin: 0; }
 .choice:has(input:checked) { border-color: var(--donor-dark); background: #F2F4FD; }
 .choice:has(input:disabled) { cursor: not-allowed; opacity: .6; }
 .choice-title { font-weight: 700; display: block; }
 .choice-desc { font-size: .92rem; color: var(--muted); }
 .choice-amount { font-family: var(--font-head); font-weight: 800; font-size: 1.25rem; }
-.amount-input { display: flex; align-items: center; max-width: 240px; }
+.amount-input { display: flex; align-items: center; width: 100%; max-width: 15em; }
 .amount-input span { padding: 11px 13px; background: var(--bg); border: 1.5px solid #8F879C; border-right: 0; border-radius: 8px 0 0 8px; font-weight: 700; }
 .amount-input input { border-radius: 0 8px 8px 0; font-size: 1.2rem; font-weight: 700; }
 .quick { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
@@ -377,7 +384,7 @@ mark { background: var(--match-soft); color: inherit; padding: 0 2px; border-rad
 
 /* ---------- small screens (reflow at 320 px, WCAG 1.4.10) ---------- */
 .table-scroll { overflow-x: auto; max-width: 100%; }
-.table-scroll:focus-visible { outline-offset: -3px; }
+.table-scroll:focus-visible { outline: 3px solid var(--donor-dark); outline-offset: -3px; }
 .choice--simple { grid-template-columns: auto 1fr; }
 .supporters li, .choice, .field, .panel, .card-body { overflow-wrap: anywhere; }
 .filter-hint { flex-basis: 100%; margin: 0; }
@@ -395,6 +402,6 @@ mark { background: var(--match-soft); color: inherit; padding: 0 2px; border-rad
   .facts-row { flex-wrap: wrap; }
 }
 .share-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-.share-row input { flex: 1 1 180px; min-width: 0; }
+.share-row input { flex: 1 1 11em; min-width: 0; }
 .project-layout > *, .side-layout > *, .flow-layout > *, .faq-layout > *, .two-col > *, .hero-grid > * { min-width: 0; }
 .tabs a { overflow-wrap: anywhere; }
