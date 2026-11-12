@@ -30,7 +30,8 @@ document.addEventListener('ft:ready', function () {
   root.innerHTML = '' +
     '<div>' +
       '<div class="confirm-head">' +
-        '<span class="confirm-icon" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>' +
+        /* Icon with a text alternative (WCAG 1.1.1): role="img" + <title>, in the page language. */
+        '<span class="confirm-icon"><svg role="img" aria-labelledby="confirm-icon-title" focusable="false" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><title id="confirm-icon-title">' + (FT.lang() === 'it' ? 'Donazione registrata' : 'Donation recorded') + '</title><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>' +
         '<div><h1 style="font-size:2.4rem">' + (first ? L('Thank you, ' + first + '!', 'Grazie, ' + first + '!') : L('Thank you!', 'Grazie!')) + '</h1>' +
         '<p class="lead">' + L('Your donation of ', 'La tua donazione di ') + '<strong>' + FT.money(amount) + '</strong>' + L(' to ', ' a ') + '<strong>' + p.short + '</strong>' + L(' is recorded.', ' è registrata.') + '</p></div>' +
       '</div>' +
