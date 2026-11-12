@@ -31,7 +31,7 @@ document.addEventListener('ft:ready', function () {
           L(' and stays open until ', ' e resta aperta fino al ') + FT.date(p.end) + '.'
         : L('<strong>Goal reached.</strong> Donors passed the goal of ', '<strong>Obiettivo raggiunto.</strong> I donatori hanno superato l’obiettivo di ') + FT.money(p.goal) +
           L(', so the University adds ', ', quindi l’Ateneo aggiunge ') + FT.money(match) + L('. The campaign stays open until ', '. La campagna resta aperta fino al ') + FT.date(p.end) + '.')
-    : L('<strong>Goal: ', '<strong>Obiettivo: ') + FT.money(p.goal) + L(' by ', ' entro il ') + FT.date(p.end) + '.</strong> ' +
+    : L('<strong>Goal: </strong>', '<strong>Obiettivo: </strong>') + '<strong>' + FT.money(p.goal) + L(' by ', ' entro il ') + FT.date(p.end) + '.</strong> ' +
       L('If donors reach it, the University adds ', 'Se i donatori lo raggiungono, l’Ateneo aggiunge ') + FT.money(match) +
       L(': the research gets ', ': la ricerca riceve ') + FT.money(p.goal + match) + '.';
 
@@ -62,14 +62,14 @@ document.addEventListener('ft:ready', function () {
         '<h3 style="font-size:1.05rem;margin:0 0 10px">' + L('Share this campaign', 'Condividi la campagna') + '</h3>' +
         '<div class="field">' +
           '<label for="share-link">' + L('Stable link', 'Link stabile') + '</label>' +
-          '<div style="display:flex;gap:8px;align-items:center">' +
-            '<input id="share-link" type="text" readonly value="' + ('project.html?id=' + p.id) + '" style="flex:1">' +
+          '<div class="share-row">' +
+            '<input id="share-link" type="text" autocomplete="off" readonly value="' + ('project.html?id=' + p.id) + '">' +
             '<button type="button" class="btn btn--ghost" id="copy-link">' + L('Copy link', 'Copia link') + '</button>' +
           '</div>' +
         '</div>' +
         '<div class="field">' +
           '<label for="share-text">' + L('Ready-to-paste text', 'Testo pronto da incollare') + '</label>' +
-          '<textarea id="share-text" rows="6" readonly></textarea>' +
+          '<textarea id="share-text" rows="6" autocomplete="off" readonly></textarea>' +
           '<div class="flow-actions" style="margin-top:8px">' +
             '<button type="button" class="btn btn--ghost" id="copy-text">' + L('Copy text', 'Copia testo') + '</button>' +
             '<span id="share-status" class="field-ok" role="status" aria-live="polite"></span>' +
@@ -107,12 +107,12 @@ document.addEventListener('ft:ready', function () {
   if (hasAmounts) {
     var base = p.budget.filter(function (b) { return !b.stretch; });
     var total = base.reduce(function (s, b) { return s + b.amount; }, 0);
-    budgetHtml = '<table class="budget"><thead><tr><th>' + L('What the money pays for', 'A cosa servono i fondi') + '</th><th class="num">' + L('Amount', 'Importo') + '</th><th>' + L('Share', 'Quota') + '</th></tr></thead><tbody>' +
+    budgetHtml = '<div class="table-scroll" role="region" tabindex="0" aria-label="' + (FT.lang() === 'it' ? 'Come verranno usati i fondi (tabella scorrevole)' : 'How the money will be used (scrollable table)') + '"><table class="budget"><thead><tr><th scope="col">' + L('What the money pays for', 'A cosa servono i fondi') + '</th><th scope="col" class="num">' + L('Amount', 'Importo') + '</th><th scope="col">' + L('Share', 'Quota') + '</th></tr></thead><tbody>' +
       p.budget.map(function (b) {
         return '<tr><td>' + L(b.en, b.it) + (b.stretch ? ' <span class="avail avail--few">' + L('new goal', 'nuovo obiettivo') + '</span>' : '') + '</td><td class="num">' + FT.money(b.amount) + '</td>' +
           '<td>' + (b.stretch ? '' : '<div class="share"><span style="width:' + Math.round(b.amount / total * 100) + '%"></span></div>') + '</td></tr>';
       }).join('') +
-      '</tbody><tfoot><tr><td>' + L('First goal with the University match', 'Primo obiettivo con il raddoppio dell’Ateneo') + '<br><span class="small muted">' + FT.money(p.goal) + L(' from donors + ', ' dai donatori + ') + FT.money(match) + L(' from the University', ' dall’Ateneo') + '</span></td><td class="num">' + FT.money(total) + '</td><td></td></tr></tfoot></table>';
+      '</tbody><tfoot><tr><td>' + L('First goal with the University match', 'Primo obiettivo con il raddoppio dell’Ateneo') + '<br><span class="small muted">' + FT.money(p.goal) + L(' from donors + ', ' dai donatori + ') + FT.money(match) + L(' from the University', ' dall’Ateneo') + '</span></td><td class="num">' + FT.money(total) + '</td><td></td></tr></tfoot></table></div>';
   } else {
     budgetHtml = '<ul>' + p.budget.map(function (b) { return '<li>' + L(b.en, b.it) + '</li>'; }).join('') + '</ul>' +
       '<p class="note note--info small">' + L('The team lists what the funds pay for, but not the amount of each item. With the University match the project gets ', 'Il gruppo indica a cosa servono i fondi, ma non l’importo di ogni voce. Con il raddoppio dell’Ateneo il progetto riceve ') + FT.money(p.goal + match) + '.</p>';
