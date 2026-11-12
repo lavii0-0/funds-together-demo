@@ -59,11 +59,14 @@
             <span class="hint"><span data-l="en">You find it on the confirmation page and in the certificate email.</span><span data-l="it">Lo trovi nella pagina di conferma e nella mail dell’attestato.</span></span>
             <input id="c-ref" type="text" autocomplete="off" data-ph-en="e.g. FT26-MIN-1175" data-ph-it="es. FT26-MIN-1175">
           </div>
-          <div class="field">
-            <label for="c-msg"><span data-l="en">Your message</span><span data-l="it">Il tuo messaggio</span></label>
-            <textarea id="c-msg" autocomplete="off" data-max="1000"></textarea>
-            <p class="counter" id="c-msg-count"></p>
-            <p class="field-error" id="c-msg-error"></p>
+          <!-- Flex row around the message field (WCAG 1.4.10, technique C38): the form itself is hidden until a topic is chosen -->
+          <div class="form-row">
+            <div class="field">
+              <label for="c-msg"><span data-l="en">Your message</span><span data-l="it">Il tuo messaggio</span></label>
+              <textarea id="c-msg" autocomplete="off" data-max="1000"></textarea>
+              <p class="counter" id="c-msg-count"></p>
+              <p class="field-error" id="c-msg-error"></p>
+            </div>
           </div>
           <div class="flow-actions"><button class="btn" type="submit" id="c-submit"></button></div>
         </form>
