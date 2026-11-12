@@ -16,21 +16,21 @@ document.addEventListener('ft:ready', function () {
   var ref = 'FT26-' + p.short.replace(/[^A-Z]/gi, '').slice(0, 3).toUpperCase() + '-' + (1000 + Math.round(amount * 7) % 9000);
 
   var next = reached
-    ? '<li><time>' + FT.date(p.end) + '</time><h3>' + L('The campaign closes', 'La campagna si chiude') + '</h3><p>' +
+    ? '<li><span class="tl-date">' + FT.date(p.end) + '</span><h3>' + L('The campaign closes', 'La campagna si chiude') + '</h3><p>' +
         L(p.stretchActive
             ? 'The first goal is already reached, so your donation is confirmed and the University match is guaranteed. The team starts the research and sends your reward.'
             : 'The goal is already reached, so your donation is confirmed and the University match is guaranteed. The team starts the research and sends your reward.',
           p.stretchActive
             ? 'Il primo obiettivo è già raggiunto: la tua donazione è confermata e il raddoppio dell’Ateneo è garantito. Il gruppo avvia la ricerca e ti invia la ricompensa.'
             : 'L’obiettivo è già raggiunto: la tua donazione è confermata e il raddoppio dell’Ateneo è garantito. Il gruppo avvia la ricerca e ti invia la ricompensa.') + '</p></li>'
-    : '<li><time>' + FT.date(p.end) + '</time><h3>' + L('The campaign closes', 'La campagna si chiude') + '</h3><p>' +
+    : '<li><span class="tl-date">' + FT.date(p.end) + '</span><h3>' + L('The campaign closes', 'La campagna si chiude') + '</h3><p>' +
         L('If the goal of ', 'Se l’obiettivo di ') + FT.money(p.goal) + L(' is reached, the University adds ', ' viene raggiunto, l’Ateneo aggiunge ') + FT.money(Math.min(p.goal, 10000)) +
         L(' and the research starts. If it is not reached, you get your donation back, minus the payment fees. We tell you by email in both cases.', ' e la ricerca parte. Se non viene raggiunto, ti restituiamo la donazione al netto delle commissioni. In entrambi i casi ti avvisiamo via email.') + '</p></li>';
 
   root.innerHTML = '' +
     '<div>' +
       '<div class="confirm-head">' +
-        '<span class="confirm-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>' +
+        '<span class="confirm-icon" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>' +
         '<div><h1 style="font-size:2.4rem">' + (first ? L('Thank you, ' + first + '!', 'Grazie, ' + first + '!') : L('Thank you!', 'Grazie!')) + '</h1>' +
         '<p class="lead">' + L('Your donation of ', 'La tua donazione di ') + '<strong>' + FT.money(amount) + '</strong>' + L(' to ', ' a ') + '<strong>' + p.short + '</strong>' + L(' is recorded.', ' è registrata.') + '</p></div>' +
       '</div>' +
@@ -38,10 +38,10 @@ document.addEventListener('ft:ready', function () {
 
       '<h2>' + L('What happens next', 'Cosa succede adesso') + '</h2>' +
       '<ol class="timeline" style="margin-top:18px">' +
-        '<li class="is-now"><time>' + L('Today', 'Oggi') + '</time><h3>' + L('Certificate by email', 'Attestato via email') + '</h3><p>' +
+        '<li class="is-now"><span class="tl-date">' + L('Today', 'Oggi') + '</span><h3>' + L('Certificate by email', 'Attestato via email') + '</h3><p>' +
           (donor.email ? L('We send your donation certificate to ', 'Inviamo l’attestato di donazione a ') + '<strong>' + donor.email + '</strong>.' : L('We send your donation certificate to your email address.', 'Inviamo l’attestato di donazione al tuo indirizzo email.')) +
           (method && method.id === 'transfer' ? ' ' + L('You also receive the bank details: the transfer must arrive before ', 'Ricevi anche le coordinate bancarie: il bonifico deve arrivare prima del ') + FT.date(p.end) + '.' : '') + '</p></li>' +
-        '<li><time>' + L('Until ', 'Fino al ') + FT.date(p.end) + '</time><h3>' + L('Follow the campaign', 'Segui la campagna') + '</h3><p>' +
+        '<li><span class="tl-date">' + L('Until ', 'Fino al ') + FT.date(p.end) + '</span><h3>' + L('Follow the campaign', 'Segui la campagna') + '</h3><p>' +
           (donor.upd === false ? L('You chose not to receive updates. You can still read them on the project page.', 'Hai scelto di non ricevere aggiornamenti. Puoi comunque leggerli nella pagina del progetto.')
                                : L('You receive the team’s updates by email. They are also on the project page.', 'Ricevi via email gli aggiornamenti del gruppo. Sono anche nella pagina del progetto.')) + '</p></li>' +
         next +
