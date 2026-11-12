@@ -23,7 +23,7 @@
     </div>
 
     <div class="wrap" style="padding-bottom:70px">
-      <form class="toolbar" id="filters" role="search" onsubmit="return false">
+      <form class="toolbar" id="filters" role="search" action="campaigns.html">
         <div class="field" style="flex:1 1 260px">
           <label for="q"><span data-l="en">Search</span><span data-l="it">Cerca</span></label>
           <input id="q" type="search" autocomplete="off" data-ph-en="Project name or topic, e.g. heart" data-ph-it="Nome del progetto o tema, es. cuore">
@@ -54,7 +54,12 @@
             <option value="az" data-en="Name (A–Z)" data-it="Nome (A–Z)">Name (A–Z)</option>
           </select>
         </div>
-        <p class="small muted filter-hint" id="filter-hint"><span data-l="en">The list updates by itself when you change a filter.</span><span data-l="it">L’elenco si aggiorna da solo quando cambi un filtro.</span></p>
+        <!-- Explicit submit button (WCAG 3.2.2, technique H32): the form can be sent on purpose,
+             changing a filter only updates the list below and never moves the user elsewhere. -->
+        <div class="field">
+          <button type="submit" class="btn" id="apply-filters"><span data-l="en">Show results</span><span data-l="it">Mostra i risultati</span></button>
+        </div>
+        <p class="small muted filter-hint" id="filter-hint"><span data-l="en">The list below updates when you change a filter; the page does not change. You can also press “Show results”.</span><span data-l="it">L’elenco qui sotto si aggiorna quando cambi un filtro; la pagina non cambia. Puoi anche premere “Mostra i risultati”.</span></p>
       </form>
 
       <h2 class="sr-only">Campaign list</h2>
