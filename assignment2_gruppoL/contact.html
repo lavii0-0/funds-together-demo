@@ -26,20 +26,20 @@
         <!-- Routing instead of one generic contact (problems B6 and C5) -->
         <fieldset class="route">
           <legend><span data-l="en">My question is about…</span><span data-l="it">La mia domanda riguarda…</span></legend>
-          <label class="choice" style="grid-template-columns:auto 1fr"><input type="radio" name="topic" value="payment"><span><span class="choice-title"><span data-l="en">A donation, a payment or a refund</span><span data-l="it">Una donazione, un pagamento o un rimborso</span></span></span></label>
-          <label class="choice" style="grid-template-columns:auto 1fr"><input type="radio" name="topic" value="project"><span><span class="choice-title"><span data-l="en">A specific project or its rewards</span><span data-l="it">Un progetto specifico o le sue ricompense</span></span></span></label>
-          <label class="choice" style="grid-template-columns:auto 1fr"><input type="radio" name="topic" value="programme"><span><span class="choice-title"><span data-l="en">The programme or the University match</span><span data-l="it">Il programma o il raddoppio dell’Ateneo</span></span></span></label>
-          <label class="choice" style="grid-template-columns:auto 1fr"><input type="radio" name="topic" value="apply"><span><span class="choice-title"><span data-l="en">Proposing a project (UniTO researchers)</span><span data-l="it">Proporre un progetto (ricercatori UniTO)</span></span></span></label>
+          <label class="choice choice--simple"><input type="radio" name="topic" value="payment"><span><span class="choice-title"><span data-l="en">A donation, a payment or a refund</span><span data-l="it">Una donazione, un pagamento o un rimborso</span></span></span></label>
+          <label class="choice choice--simple"><input type="radio" name="topic" value="project"><span><span class="choice-title"><span data-l="en">A specific project or its rewards</span><span data-l="it">Un progetto specifico o le sue ricompense</span></span></span></label>
+          <label class="choice choice--simple"><input type="radio" name="topic" value="programme"><span><span class="choice-title"><span data-l="en">The programme or the University match</span><span data-l="it">Il programma o il raddoppio dell’Ateneo</span></span></span></label>
+          <label class="choice choice--simple"><input type="radio" name="topic" value="apply"><span><span class="choice-title"><span data-l="en">Proposing a project (UniTO researchers)</span><span data-l="it">Proporre un progetto (ricercatori UniTO)</span></span></span></label>
         </fieldset>
 
         <div class="panel route-result" id="route-result" aria-live="polite" hidden></div>
 
         <form id="contact-form" novalidate hidden style="margin-top:30px">
-          <h2 style="font-size:1.35rem" id="form-h"></h2>
+          <h2 style="font-size:1.35rem" id="form-h"><span data-l="en">Write to us</span><span data-l="it">Scrivici</span></h2>
           <div class="error-summary" id="errors" tabindex="-1" hidden></div>
           <div class="field" id="project-field" hidden>
             <label for="c-project"><span data-l="en">Which project?</span><span data-l="it">Quale progetto?</span></label>
-            <select id="c-project"></select>
+            <select id="c-project" autocomplete="off"></select>
             <p class="field-error" id="c-project-error"></p>
           </div>
           <div class="form-row">
@@ -57,11 +57,11 @@
           <div class="field" id="ref-field" hidden>
             <label for="c-ref"><span data-l="en">Donation reference (optional)</span><span data-l="it">Riferimento della donazione (facoltativo)</span></label>
             <span class="hint"><span data-l="en">You find it on the confirmation page and in the certificate email.</span><span data-l="it">Lo trovi nella pagina di conferma e nella mail dell’attestato.</span></span>
-            <input id="c-ref" type="text" data-ph-en="e.g. FT26-MIN-1175" data-ph-it="es. FT26-MIN-1175">
+            <input id="c-ref" type="text" autocomplete="off" data-ph-en="e.g. FT26-MIN-1175" data-ph-it="es. FT26-MIN-1175">
           </div>
           <div class="field">
             <label for="c-msg"><span data-l="en">Your message</span><span data-l="it">Il tuo messaggio</span></label>
-            <textarea id="c-msg" data-max="1000"></textarea>
+            <textarea id="c-msg" autocomplete="off" data-max="1000"></textarea>
             <p class="counter" id="c-msg-count"></p>
             <p class="field-error" id="c-msg-error"></p>
           </div>
