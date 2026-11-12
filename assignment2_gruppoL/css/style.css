@@ -220,6 +220,12 @@ fieldset { border: 0; padding: 0; margin: 0 0 20px; }
 .counter.is-over { color: var(--err); font-weight: 700; }
 /* Flexbox that wraps instead of a 2-column grid: label + input pairs reflow to one column on small screens (WCAG 1.4.10, technique C38). */
 .form-row { display: flex; flex-wrap: wrap; gap: 0 18px; }
+/* Every form is a flexbox column, so each label + input block sits in a flex container and
+   shrinks with the viewport (WCAG 1.4.10, MAUVE++ technique C38). The campaigns toolbar is already flex. */
+form:not(.toolbar) { display: flex; flex-direction: column; }
+form > * { min-width: 0; max-width: 100%; }
+/* Keep the hidden attribute stronger than any display rule (forms and panels shown by JavaScript). */
+[hidden] { display: none !important; }
 .form-row > .field { flex: 1 1 15em; min-width: 0; }
 
 .error-summary { border: 2px solid var(--err); background: var(--err-soft); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 24px; }
