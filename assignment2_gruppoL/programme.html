@@ -63,11 +63,12 @@
       <h2><span data-l="en">Who does what</span><span data-l="it">Chi fa cosa</span></h2>
       <p class="lead" style="margin-bottom:22px"><span data-l="en">Three actors run the programme together. This site brings their information into one place.</span>
         <span data-l="it">Tre soggetti gestiscono il programma insieme. Questo sito riunisce le loro informazioni in un unico posto.</span></p>
+      <div class="table-scroll" role="region" tabindex="0" data-aria-en="Who does what (scrollable table)" data-aria-it="Chi fa cosa (tabella scorrevole)">
       <table class="who">
         <thead><tr>
-          <th><span data-l="en">Who</span><span data-l="it">Chi</span></th>
-          <th><span data-l="en">What they do</span><span data-l="it">Cosa fa</span></th>
-          <th><span data-l="en">Contact them for</span><span data-l="it">Contattalo per</span></th>
+          <th scope="col"><span data-l="en">Who</span><span data-l="it">Chi</span></th>
+          <th scope="col"><span data-l="en">What they do</span><span data-l="it">Cosa fa</span></th>
+          <th scope="col"><span data-l="en">Contact them for</span><span data-l="it">Contattalo per</span></th>
         </tr></thead>
         <tbody>
           <tr><td><strong><span data-l="en">University of Turin, Funds TOgether office</span><span data-l="it">Università di Torino, ufficio Funds TOgether</span></strong></td>
@@ -81,22 +82,23 @@
             <td><span data-l="en">Questions about a project or a reward</span><span data-l="it">Domande su un progetto o una ricompensa</span><br><a href="contact.html?topic=project"><span data-l="en">Write to a team</span><span data-l="it">Scrivi a un gruppo</span></a></td></tr>
         </tbody>
       </table>
+      </div>
     </section>
 
     <section class="section--white section" id="timeline">
       <div class="wrap">
         <h2><span data-l="en">The 2026 edition, step by step</span><span data-l="it">L’edizione 2026, passo per passo</span></h2>
         <ol class="timeline" style="margin-top:22px">
-          <li><time><span data-l="en">Before the campaigns</span><span data-l="it">Prima delle campagne</span></time><h3><span data-l="en">Training, applications and selection</span><span data-l="it">Formazione, candidature e selezione</span></h3>
+          <li><span class="tl-date"><span data-l="en">Before the campaigns</span><span data-l="it">Prima delle campagne</span></span><h3><span data-l="en">Training, applications and selection</span><span data-l="it">Formazione, candidature e selezione</span></h3>
             <p><span data-l="en">Five projects were selected. Applications are now closed.</span><span data-l="it">Sono stati selezionati cinque progetti. Le candidature sono chiuse.</span></p></li>
-          <li><time><span data-l="en">September 2026</span><span data-l="it">Settembre 2026</span></time><h3><span data-l="en">Campaigns online</span><span data-l="it">Campagne online</span></h3>
+          <li><span class="tl-date"><span data-l="en">September 2026</span><span data-l="it">Settembre 2026</span></span><h3><span data-l="en">Campaigns online</span><span data-l="it">Campagne online</span></h3>
             <p><span data-l="en">The five campaigns open on Ginger.</span><span data-l="it">Le cinque campagne aprono su Ginger.</span></p></li>
-          <li class="is-now"><time><span data-l="en">Now: 10 to 18 November 2026</span><span data-l="it">Ora: dal 10 al 18 novembre 2026</span></time><h3><span data-l="en">Campaigns close</span><span data-l="it">Chiusura delle campagne</span></h3>
+          <li class="is-now"><span class="tl-date"><span data-l="en">Now: 10 to 18 November 2026</span><span data-l="it">Ora: dal 10 al 18 novembre 2026</span></span><h3><span data-l="en">Campaigns close</span><span data-l="it">Chiusura delle campagne</span></h3>
             <p><span data-l="en">Each campaign has its own end date: VIBE on 10 November, RePatch, MILK-ACT and NanoStop on 17 November, Mind the Climate on 18 November.</span>
                <span data-l="it">Ogni campagna ha la sua scadenza: VIBE il 10 novembre, RePatch, MILK-ACT e NanoStop il 17 novembre, Mind the Climate il 18 novembre.</span></p></li>
-          <li><time><span data-l="en">After the end date</span><span data-l="it">Dopo la scadenza</span></time><h3><span data-l="en">University match and start of the research</span><span data-l="it">Raddoppio dell’Ateneo e avvio della ricerca</span></h3>
+          <li><span class="tl-date"><span data-l="en">After the end date</span><span data-l="it">Dopo la scadenza</span></span><h3><span data-l="en">University match and start of the research</span><span data-l="it">Raddoppio dell’Ateneo e avvio della ricerca</span></h3>
             <p><span data-l="en">Projects that reached their goal receive the funds and the match. Supporters follow the results through the updates.</span><span data-l="it">I progetti che hanno raggiunto l’obiettivo ricevono i fondi e il raddoppio. I sostenitori seguono i risultati con gli aggiornamenti.</span></p></li>
-          <li><time><span data-l="en">Next edition</span><span data-l="it">Prossima edizione</span></time><h3><span data-l="en">New call: date to be announced</span><span data-l="it">Nuovo bando: data da annunciare</span></h3>
+          <li><span class="tl-date"><span data-l="en">Next edition</span><span data-l="it">Prossima edizione</span></span><h3><span data-l="en">New call: date to be announced</span><span data-l="it">Nuovo bando: data da annunciare</span></h3>
             <p><a href="propose.html"><span data-l="en">Register your interest</span><span data-l="it">Registra il tuo interesse</span></a></p></li>
         </ol>
       </div>
@@ -105,7 +107,9 @@
     <section class="wrap section" id="editions">
       <h2><span data-l="en">Projects from past editions</span><span data-l="it">Progetti delle edizioni passate</span></h2>
       <p><span data-l="en">A selection of completed campaigns. All of them went well beyond their goal.</span><span data-l="it">Una selezione di campagne concluse. Tutte hanno superato ampiamente l’obiettivo.</span></p>
+      <div class="table-scroll" role="region" tabindex="0" data-aria-en="Projects from past editions (scrollable table)" data-aria-it="Progetti delle edizioni passate (tabella scorrevole)">
       <table class="budget" id="past"></table>
+      </div>
       <p style="margin-top:18px"><a href="https://www.unito.it/node/14093" target="_blank" rel="noopener"><span data-l="en">Official programme page on unito.it (external site, opens in a new tab)</span><span data-l="it">Pagina ufficiale del programma su unito.it (sito esterno, si apre in una nuova scheda)</span></a></p>
     </section>
   </main>
