@@ -45,6 +45,13 @@ document.addEventListener('ft:ready', function () {
   q.addEventListener('input', render);
   status.addEventListener('change', render);
   sort.addEventListener('change', render);
+  /* Submit button (WCAG 3.2.2): stays on the page, updates the list and moves focus to the result count. */
+  document.getElementById('filters').addEventListener('submit', function (e) {
+    e.preventDefault();
+    render();
+    count.setAttribute('tabindex', '-1');
+    count.focus();
+  });
   document.getElementById('reset').addEventListener('click', function () {
     q.value = ''; status.value = 'all'; theme = 'all'; render(); q.focus();
   });
