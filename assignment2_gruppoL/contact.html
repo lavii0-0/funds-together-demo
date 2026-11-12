@@ -34,7 +34,9 @@
 
         <div class="panel route-result" id="route-result" aria-live="polite" hidden></div>
 
-        <form id="contact-form" novalidate hidden style="margin-top:30px">
+        <!-- The wrapper is hidden, not the form: the form stays a flex container for its fields (WCAG 1.4.10, technique C38) -->
+        <div id="contact-form-wrap" hidden>
+        <form id="contact-form" novalidate style="margin-top:30px">
           <h2 style="font-size:1.35rem" id="form-h"><span data-l="en">Write to us</span><span data-l="it">Scrivici</span></h2>
           <div class="error-summary" id="errors" tabindex="-1" hidden></div>
           <div class="field" id="project-field" hidden>
@@ -70,6 +72,7 @@
           </div>
           <div class="flow-actions"><button class="btn" type="submit" id="c-submit"></button></div>
         </form>
+        </div>
         <div class="success-box" id="c-success" tabindex="-1" hidden role="region" data-aria-en="Contact form result" data-aria-it="Esito del modulo di contatto" style="margin-top:30px"></div>
       </div>
 
