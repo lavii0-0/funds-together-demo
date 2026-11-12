@@ -121,7 +121,7 @@
     var pct = Math.round(p.raised / FT.activeGoal(p) * 100);
     return '' +
       '<article class="card" style="--accent:' + p.color + '" data-theme="' + p.theme + '" data-status="' + st.cls + '">' +
-        '<div class="card-band"><span class="card-short">' + p.short + '</span></div>' +
+        '<div class="card-band" style="background-color:' + p.color + '"><span class="card-short">' + p.short + '</span></div>' +
         '<div class="card-body">' +
           '<p class="status status--' + st.cls + '">' + st.html + '</p>' +
           '<h3 class="card-title"><a href="' + FT.url('project.html', { id: p.id }) + '">' + FT.L(p.title) + '</a></h3>' +
