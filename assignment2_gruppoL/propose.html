@@ -92,7 +92,7 @@
         <div class="form-row">
           <div class="field">
             <label for="e-role"><span data-l="en">Your role at UniTO</span><span data-l="it">Il tuo ruolo in UniTO</span></label>
-            <select id="e-role">
+            <select id="e-role" autocomplete="organization-title">
               <option value="" data-en="Choose…" data-it="Scegli…">Choose…</option>
               <option value="prof" data-en="Professor" data-it="Docente">Professor</option>
               <option value="researcher" data-en="Researcher" data-it="Ricercatore/ricercatrice">Researcher</option>
@@ -113,13 +113,13 @@
         <div class="field">
           <label for="e-team"><span data-l="en">Your team (names and roles)</span><span data-l="it">Il tuo gruppo (nomi e ruoli)</span></label>
           <span class="hint"><span data-l="en">At least two people, including who will run the campaign.</span><span data-l="it">Almeno due persone, compreso chi seguirà la campagna.</span></span>
-          <textarea id="e-team" data-max="400" data-ph-en="e.g. Maria Rossi (researcher), Luca Bianchi (PhD student, communication)" data-ph-it="es. Maria Rossi (ricercatrice), Luca Bianchi (dottorando, comunicazione)"></textarea>
+          <textarea id="e-team" autocomplete="off" data-max="400" data-ph-en="e.g. Maria Rossi (researcher), Luca Bianchi (PhD student, communication)" data-ph-it="es. Maria Rossi (ricercatrice), Luca Bianchi (dottorando, comunicazione)"></textarea>
           <p class="field-error" id="e-team-error"></p>
         </div>
         <div class="field">
           <label for="e-goal"><span data-l="en">Rough goal (€)</span><span data-l="it">Obiettivo orientativo (€)</span></label>
           <span class="hint"><span data-l="en">In 2026 the goals ranged from €4,700 to €10,000.</span><span data-l="it">Nel 2026 gli obiettivi sono andati da 4.700 a 10.000 €.</span></span>
-          <input id="e-goal" type="number" min="4700" max="10000" step="100" data-ph-en="e.g. 7000" data-ph-it="es. 7000">
+          <input id="e-goal" autocomplete="off" type="number" min="4700" max="10000" step="100" data-ph-en="e.g. 7000" data-ph-it="es. 7000">
           <p class="field-error" id="e-goal-error"></p>
         </div>
         <div class="flow-actions"><button class="btn" type="submit" id="e-submit"><span data-l="en">Check my eligibility</span><span data-l="it">Verifica i requisiti</span></button></div>
@@ -136,16 +136,16 @@
         <div>
           <div class="field">
             <label for="p-name"><span data-l="en">Project name</span><span data-l="it">Nome del progetto</span></label>
-            <input id="p-name" type="text" data-ph-en="e.g. NanoStop" data-ph-it="es. NanoStop">
+            <input id="p-name" autocomplete="off" type="text" data-ph-en="e.g. NanoStop" data-ph-it="es. NanoStop">
           </div>
           <div class="field">
             <label for="p-tagline"><span data-l="en">One-line summary</span><span data-l="it">Sintesi in una riga</span></label>
-            <input id="p-tagline" type="text" data-ph-en="What the project does, for a non-expert" data-ph-it="Cosa fa il progetto, per chi non è esperto">
+            <input id="p-tagline" autocomplete="off" type="text" data-ph-en="What the project does, for a non-expert" data-ph-it="Cosa fa il progetto, per chi non è esperto">
           </div>
           <div class="form-row">
             <div class="field">
               <label for="p-theme"><span data-l="en">Theme</span><span data-l="it">Tema</span></label>
-              <select id="p-theme">
+              <select id="p-theme" autocomplete="off">
                 <option value="health" data-en="Health" data-it="Salute">Health</option>
                 <option value="environment" data-en="Environment" data-it="Ambiente">Environment</option>
                 <option value="society" data-en="Society and cities" data-it="Società e città">Society and cities</option>
@@ -153,7 +153,7 @@
             </div>
             <div class="field">
               <label for="p-goal"><span data-l="en">Goal (€)</span><span data-l="it">Obiettivo (€)</span></label>
-              <input id="p-goal" type="number" min="4700" max="10000" step="100" value="7000">
+              <input id="p-goal" autocomplete="off" type="number" min="4700" max="10000" step="100" value="7000">
               <span class="hint"><span data-l="en">If you leave the goal empty we use €7,000 as an example.</span><span data-l="it">Se lasci l’obiettivo vuoto usiamo 7.000 € come esempio.</span></span>
               <p class="field-error" id="p-goal-error"></p>
             </div>
@@ -161,7 +161,7 @@
           <div class="field">
             <label for="p-color"><span data-l="en">Card colour</span><span data-l="it">Colore della scheda</span></label>
             <span class="hint"><span data-l="en">All five use dark text so the card stays readable.</span><span data-l="it">Tutti e cinque usano testo scuro, così la scheda resta leggibile.</span></span>
-            <select id="p-color">
+            <select id="p-color" autocomplete="off">
               <option value="#BFE3D0" data-en="Green" data-it="Verde">Green</option>
               <option value="#F6C6C1" data-en="Pink" data-it="Rosa">Pink</option>
               <option value="#DCCFF2" data-en="Lilac" data-it="Lilla">Lilac</option>
@@ -189,7 +189,7 @@
             </div>
             <div class="field">
               <label for="r-role"><span data-l="en">Your role</span><span data-l="it">Il tuo ruolo</span></label>
-              <select id="r-role">
+              <select id="r-role" autocomplete="organization-title">
                 <option value="" data-en="Choose…" data-it="Scegli…">Choose…</option>
                 <option value="prof" data-en="Professor" data-it="Docente">Professor</option>
                 <option value="researcher" data-en="Researcher" data-it="Ricercatore/ricercatrice">Researcher</option>
@@ -207,7 +207,7 @@
           </div>
           <div class="field">
             <label for="r-dept"><span data-l="en">Department</span><span data-l="it">Dipartimento</span></label>
-            <input id="r-dept" type="text" list="depts" data-ph-en="Start typing, e.g. Psychology" data-ph-it="Inizia a scrivere, es. Psicologia">
+            <input id="r-dept" autocomplete="off" type="text" list="depts" data-ph-en="Start typing, e.g. Psychology" data-ph-it="Inizia a scrivere, es. Psicologia">
             <datalist id="depts">
               <option value="Informatica"><option value="Psicologia"><option value="Scienze Cliniche e Biologiche"><option value="Scienze della Vita e Biologia dei Sistemi"><option value="Scienze della Sanità Pubblica e Pediatriche"><option value="Chimica"><option value="Fisica"><option value="Giurisprudenza"><option value="Economia e Statistica"><option value="Scienze Mediche">
             </datalist>
@@ -216,7 +216,7 @@
           <div class="field">
             <label for="r-idea"><span data-l="en">Your project idea (optional)</span><span data-l="it">La tua idea di progetto (facoltativo)</span></label>
             <span class="hint"><span data-l="en">A few lines are enough. It helps us plan the training.</span><span data-l="it">Bastano poche righe. Ci aiuta a organizzare la formazione.</span></span>
-            <textarea id="r-idea" data-max="600"></textarea>
+            <textarea id="r-idea" autocomplete="off" data-max="600"></textarea>
             <p class="counter" id="r-idea-count"></p>
             <p class="field-error" id="r-idea-error"></p>
           </div>
@@ -228,9 +228,9 @@
       </div>
     </section>
 
-    <section class="wrap section--tight">
+    <div class="wrap section--tight">
       <p><span data-l="en">A question about the call?</span><span data-l="it">Una domanda sul bando?</span> <a href="mailto:fundstogether@unito.it">fundstogether@unito.it</a></p>
-    </section>
+    </div>
   </main>
 
   <div id="site-footer"></div>
