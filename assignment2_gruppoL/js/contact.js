@@ -19,6 +19,7 @@ document.addEventListener('ft:ready', function () {
   var topicBox = document.querySelector('.route');
   var result = document.getElementById('route-result');
   var form = document.getElementById('contact-form');
+  var formWrap = document.getElementById('contact-form-wrap');   /* hidden wrapper, so the form itself stays display:flex */
   var projSel = document.getElementById('c-project');
   var topic = null;
 
@@ -38,7 +39,7 @@ document.addEventListener('ft:ready', function () {
     result.innerHTML = '<h2 style="font-size:1.25rem">' + L(r.who) + '</h2><p>' + L(r.why) + ' ' + L(r.time) + '</p>' +
       (r.link ? '<p style="margin:0"><a href="propose.html">' + L('First read how the call works', 'Prima leggi come funziona il bando') + '</a></p>' : '');
     result.hidden = false;
-    form.hidden = false;
+    formWrap.hidden = false;
     document.getElementById('project-field').hidden = topic !== 'project';
     document.getElementById('ref-field').hidden = topic !== 'payment';
     var to = recipient();
@@ -78,7 +79,7 @@ document.addEventListener('ft:ready', function () {
     box.hidden = true;
     var to = recipient();
     var r = ROUTES[topic];
-    form.hidden = true;
+    formWrap.hidden = true;
     var ok = document.getElementById('c-success');
     ok.innerHTML = '<h2>' + L('Message sent to ' + to.en, 'Messaggio inviato ' + to.it) + '</h2><p>' +
       L('You will receive the reply at <strong>' + email.value.trim() + '</strong>. ', 'Riceverai la risposta a <strong>' + email.value.trim() + '</strong>. ') + L(r.time) + '</p>' +
