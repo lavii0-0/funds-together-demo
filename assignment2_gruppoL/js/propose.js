@@ -240,15 +240,27 @@ document.addEventListener('ft:ready', function () {
   [pTheme, pColor].forEach(function (el) { el.addEventListener('change', updatePreview); });
   updatePreview();
 
+  /* ---------- keyboard support for the withdraw dialog: Esc closes it, Tab stays inside ---------- */
+  document.addEventListener('keydown', function (e) {
+    var box = document.getElementById('w-box');
+    if (!box) return;
+    if (e.key === 'Escape') { e.preventDefault(); document.getElementById('w-no').click(); return; }
+    if (e.key !== 'Tab') return;
+    var btns = box.querySelectorAll('button');
+    var first = btns[0], last = btns[btns.length - 1];
+    if (e.shiftKey && (document.activeElement === first || document.activeElement === box)) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
   /* ---------- withdraw and erase data (problem B10, H3) ---------- */
   document.getElementById('r-success').addEventListener('click', function (e) {
     var ok = document.getElementById('r-success');
     var id = e.target.closest('button') && e.target.closest('button').id;
     if (id === 'w-open') {
       ok.querySelector('.withdraw').innerHTML =
-        '<div class="confirm-box" role="alertdialog" aria-labelledby="w-title" tabindex="-1" id="w-box">' +
+        '<div class="confirm-box" role="alertdialog" aria-labelledby="w-title" aria-describedby="w-desc" tabindex="-1" id="w-box">' +
           '<h3 id="w-title">' + L('Erase your data?', 'Cancellare i tuoi dati?') + '</h3>' +
-          '<p>' + L('We will delete your name, email, department and idea. You will not be told when the call opens. This cannot be undone.',
+          '<p id="w-desc">' + L('We will delete your name, email, department and idea. You will not be told when the call opens. This cannot be undone.',
                     'Cancelleremo nome, email, dipartimento e idea. Non riceverai l’avviso di apertura del bando. L’operazione non si può annullare.') + '</p>' +
           '<div class="flow-actions">' +
             '<button class="btn btn--danger" type="button" id="w-yes">' + L('Yes, erase my data', 'Sì, cancella i miei dati') + '</button>' +
@@ -260,6 +272,7 @@ document.addEventListener('ft:ready', function () {
       ok.querySelector('.withdraw').innerHTML =
         '<p class="small" style="margin:0 0 8px">' + L('Your request is still active.', 'La tua richiesta è ancora attiva.') + '</p>' +
         '<button class="btn btn--ghost" type="button" id="w-open">' + L('Withdraw my request and erase my data', 'Ritira la richiesta e cancella i miei dati') + '</button>';
+      document.getElementById('w-open').focus();   /* give focus back to the button that opened the dialog */
     } else if (id === 'w-yes') {
       ok.innerHTML = '<h2>' + L('Request withdrawn', 'Richiesta ritirata') + '</h2>' +
         '<p>' + L('Your data has been erased. We will not contact you about the call.', 'I tuoi dati sono stati cancellati. Non ti contatteremo per il bando.') + '</p>' +
