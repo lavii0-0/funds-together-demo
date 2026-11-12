@@ -95,7 +95,8 @@ nav[aria-label="Main"] { margin-left: auto; }
   border: 2px solid var(--donor); background: var(--btn); color: var(--ink); text-decoration: none; cursor: pointer;
 }
 .btn:hover { background: var(--btn-hover); border-color: var(--donor-dark); color: var(--ink); }
-.btn--ghost { background: transparent; color: var(--donor-dark); }
+/* Solid white background, not transparent: the text contrast (7:1) can always be computed (WCAG 1.4.3). */
+.btn--ghost { background-color: #FFFFFF; color: var(--donor-dark); }
 .btn--ghost:hover { background: var(--donor-soft); color: var(--donor-dark); }
 .btn--block { width: 100%; }
 .btn[disabled], .btn[aria-disabled="true"] { opacity: .55; cursor: not-allowed; }
@@ -217,7 +218,9 @@ fieldset { border: 0; padding: 0; margin: 0 0 20px; }
 .check input { width: 1.25rem; height: 1.25rem; max-width: 100%; margin-top: .2em; accent-color: var(--donor); flex-shrink: 0; }
 .counter { font-size: .85rem; color: var(--muted); text-align: right; margin-top: 4px; }
 .counter.is-over { color: var(--err); font-weight: 700; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+/* Flexbox that wraps instead of a 2-column grid: label + input pairs reflow to one column on small screens (WCAG 1.4.10, technique C38). */
+.form-row { display: flex; flex-wrap: wrap; gap: 0 18px; }
+.form-row > .field { flex: 1 1 15em; min-width: 0; }
 
 .error-summary { border: 2px solid var(--err); background: var(--err-soft); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 24px; }
 .error-summary h2 { font-size: 1.1rem; color: var(--err); margin-bottom: 6px; }
@@ -303,14 +306,16 @@ table.budget { width: 100%; border-collapse: collapse; background: var(--surface
 .stepper li[aria-current="step"] { border-color: var(--donor-dark); color: var(--donor-dark); }
 .stepper li.is-done { border-color: var(--ink); color: var(--ink); }
 .flow-layout { display: grid; grid-template-columns: 1fr 360px; gap: 40px; align-items: start; padding-bottom: 70px; }
-.choice { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 16px 18px; background: var(--surface); border: 2px solid var(--edge); border-radius: var(--radius); margin-bottom: 10px; cursor: pointer; font-weight: 400; }
+/* Radio/checkbox cards in flexbox with wrapping, not grid (WCAG 1.4.10, technique C38). */
+.choice { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; padding: 16px 18px; background: var(--surface); border: 2px solid var(--edge); border-radius: var(--radius); margin-bottom: 10px; cursor: pointer; font-weight: 400; }
 .choice:hover { border-color: var(--donor-dark); }
 .choice input { width: 1.25rem; height: 1.25rem; max-width: 100%; accent-color: var(--donor); margin: 0; }
 .choice:has(input:checked) { border-color: var(--donor-dark); background: #F2F4FD; }
 .choice:has(input:disabled) { cursor: not-allowed; opacity: .6; }
 .choice-title { font-weight: 700; display: block; }
 .choice-desc { font-size: .92rem; color: var(--muted); }
-.choice-amount { font-family: var(--font-head); font-weight: 800; font-size: 1.25rem; }
+.choice > span:not(.choice-amount) { flex: 1 1 12em; min-width: 0; }
+.choice-amount { font-family: var(--font-head); font-weight: 800; font-size: 1.25rem; margin-left: auto; }
 .amount-input { display: flex; align-items: center; width: 100%; max-width: 15em; }
 .amount-input span { padding: 11px 13px; background: var(--bg); border: 1.5px solid #8F879C; border-right: 0; border-radius: 8px 0 0 8px; font-weight: 700; }
 .amount-input input { border-radius: 0 8px 8px 0; font-size: 1.2rem; font-weight: 700; }
@@ -374,7 +379,7 @@ mark { background: var(--match-soft); color: inherit; padding: 0 2px; border-rad
   .hero-grid, .project-layout, .flow-layout, .faq-layout, .side-layout, .two-col { grid-template-columns: 1fr; }
   .funding-box { position: static; margin-top: 0; }
   .summary, .faq-cats, .toc { position: static; }
-  .steps, .steps--4, .footer-grid, .paths, .form-row { grid-template-columns: 1fr; }
+  .steps, .steps--4, .footer-grid, .paths { grid-template-columns: 1fr; }
   .reward { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -385,7 +390,6 @@ mark { background: var(--match-soft); color: inherit; padding: 0 2px; border-rad
 /* ---------- small screens (reflow at 320 px, WCAG 1.4.10) ---------- */
 .table-scroll { overflow-x: auto; max-width: 100%; }
 .table-scroll:focus-visible { outline: 3px solid var(--donor-dark); outline-offset: -3px; }
-.choice--simple { grid-template-columns: auto 1fr; }
 .supporters li, .choice, .field, .panel, .card-body { overflow-wrap: anywhere; }
 .filter-hint { flex-basis: 100%; margin: 0; }
 @media (max-width: 480px) {
@@ -395,8 +399,6 @@ mark { background: var(--match-soft); color: inherit; padding: 0 2px; border-rad
   .brand-text { min-width: 0; }
   h1 { font-size: 2rem; }
   .big-figure { font-size: 2.3rem; }
-  .choice { grid-template-columns: auto 1fr; }
-  .choice-amount { grid-column: 2; }
   .pay-panel { margin-left: 0; }
   .flow-actions { flex-direction: column; align-items: stretch; }
   .facts-row { flex-wrap: wrap; }
