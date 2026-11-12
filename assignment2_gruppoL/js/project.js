@@ -123,7 +123,7 @@ document.addEventListener('ft:ready', function () {
 
   var teamHtml = '<ul class="team">' + p.team.map(function (m) {
     var ini = m.name.split(' ').map(function (w) { return w[0]; }).join('').slice(0, 2);
-    return '<li><span class="avatar" aria-hidden="true">' + ini + '</span><div><strong>' + m.name + '</strong><span>' + L(m.role) + '</span></div></li>';
+    return '<li><span class="avatar" aria-hidden="true" style="background-color:' + p.color + '">' + ini + '</span><div><strong>' + m.name + '</strong><span>' + L(m.role) + '</span></div></li>';
   }).join('') + '</ul>' +
   '<p style="margin-top:16px">' + L('Questions for the team?', 'Domande per il gruppo?') + ' <a href="' + FT.url('contact.html', { topic: 'project', id: p.id }) + '">' + L('Write to ' + p.by, 'Scrivi a ' + p.by) + '</a></p>';
 
@@ -144,7 +144,7 @@ document.addEventListener('ft:ready', function () {
   ];
 
   root.innerHTML = '' +
-    '<section class="project-hero" style="--accent:' + p.color + '"><div class="wrap">' +
+    '<section class="project-hero" style="--accent:' + p.color + ';background-color:' + p.color + '"><div class="wrap">' +
       '<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">' + L('Home', 'Home') + '</a></li><li><a href="campaigns.html">' + L('Campaigns', 'Campagne') + '</a></li><li aria-current="page">' + p.short + '</li></ol></nav>' +
       '<p class="card-theme">' + L(FT.themes[p.theme]) + '</p>' +
       '<h1>' + L(p.title) + '</h1>' +
