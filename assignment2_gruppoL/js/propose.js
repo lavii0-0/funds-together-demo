@@ -83,7 +83,7 @@ document.addEventListener('ft:ready', function () {
     btn.disabled = true;
     btn.innerHTML = '<span class="spinner" aria-hidden="true"></span>' + L('Sending…', 'Invio…');
     setTimeout(function () {
-      document.getElementById('interest-form').hidden = true;
+      document.getElementById('interest-form-wrap').hidden = true;
       var ok = document.getElementById('r-success');
       ok.innerHTML = '<h2>' + L('Interest registered', 'Interesse registrato') + '</h2>' +
         '<p>' + L('Thank you, ' + name.value.trim().split(' ')[0] + '. We will write to <strong>' + email.value.trim() + '</strong> when the next call opens, with the dates of the training.',
@@ -284,7 +284,7 @@ document.addEventListener('ft:ready', function () {
       form.reset();
       FT.counter(idea);
       ok.hidden = true;
-      form.hidden = false;
+      document.getElementById('interest-form-wrap').hidden = false;
       var btn = document.getElementById('r-submit');
       btn.disabled = false;
       btn.innerHTML = L('Register my interest', 'Registra il mio interesse');
