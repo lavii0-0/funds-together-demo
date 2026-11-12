@@ -22,7 +22,7 @@ document.addEventListener('ft:ready', function () {
     if (m.id === 'paypal') panel = L('After you confirm, you log in to PayPal to approve the payment. In this prototype, that step is skipped.', 'Dopo la conferma, accedi a PayPal per approvare il pagamento. In questo prototipo il passaggio viene saltato.');
     if (m.id === 'satispay') panel = L('After you confirm, you approve the payment in the Satispay app. In this prototype, that step is skipped.', 'Dopo la conferma, approvi il pagamento nell’app Satispay. In questo prototipo il passaggio viene saltato.');
     if (m.id === 'transfer') panel = L('You receive the bank details by email. The transfer must arrive before ', 'Ricevi le coordinate bancarie via email. Il bonifico deve arrivare prima del ') + FT.date(p.end) + L(', otherwise it does not count for the goal.', ', altrimenti non conta per l’obiettivo.');
-    return '<label class="choice" style="grid-template-columns:auto 1fr"><input type="radio" name="method" value="' + m.id + '">' +
+    return '<label class="choice choice--simple"><input type="radio" name="method" value="' + m.id + '">' +
       '<span><span class="choice-title">' + L(m.en, m.it) + '</span><span class="choice-desc">' + L(m.note) + '</span></span></label>' +
       '<div class="pay-panel small" id="panel-' + m.id + '" hidden>' + panel + '</div>';
   }).join('');
