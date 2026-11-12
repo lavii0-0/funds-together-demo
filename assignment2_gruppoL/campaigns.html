@@ -39,7 +39,7 @@
         </div>
         <div class="field">
           <label for="status"><span data-l="en">Status</span><span data-l="it">Stato</span></label>
-          <select id="status">
+          <select id="status" autocomplete="off" aria-describedby="filter-hint">
             <option value="all" data-en="All campaigns" data-it="Tutte le campagne">All campaigns</option>
             <option value="open" data-en="Still collecting for the goal" data-it="Ancora in raccolta per l’obiettivo">Still collecting for the goal</option>
             <option value="reached" data-en="Goal already reached" data-it="Obiettivo già raggiunto">Goal already reached</option>
@@ -47,13 +47,14 @@
         </div>
         <div class="field">
           <label for="sort"><span data-l="en">Sort by</span><span data-l="it">Ordina per</span></label>
-          <select id="sort">
+          <select id="sort" autocomplete="off" aria-describedby="filter-hint">
             <option value="close" data-en="Closest to the goal" data-it="Più vicini all’obiettivo">Closest to the goal</option>
             <option value="far" data-en="Most in need of support" data-it="Che hanno più bisogno di sostegno">Most in need of support</option>
             <option value="donors" data-en="Most donors" data-it="Più donatori">Most donors</option>
             <option value="az" data-en="Name (A–Z)" data-it="Nome (A–Z)">Name (A–Z)</option>
           </select>
         </div>
+        <p class="small muted filter-hint" id="filter-hint"><span data-l="en">The list updates by itself when you change a filter.</span><span data-l="it">L’elenco si aggiorna da solo quando cambi un filtro.</span></p>
       </form>
 
       <h2 class="sr-only">Campaign list</h2>
